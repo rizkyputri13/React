@@ -21,11 +21,21 @@ export default function EmployeeList() {
         )
     }
     const PenguranganGaji = (id) => {
+        setEmployee(
+            [...employee.map(emp => {
+                if (id === emp.empId) {
+                    emp.salary = emp.salary - 500
+                    return emp
+                } else {
+                    return emp
+                }
+            })]
+        )
         
     }
     return (
         <div>
-            <h2>List Employee</h2>
+            <h2> <center> List Employee </center> </h2>
             <ul>
                 {
                     (employee || []).map(emp => {
@@ -34,8 +44,8 @@ export default function EmployeeList() {
                                 <p>Emp Id : {emp.empId}</p>
                                 <p>Full Name : {emp.fullname}</p>
                                 <p>Salary : {emp.salary}</p>
-                                <button onClick={() => PenambahanGaji(emp.empId)}> Penambahan Gaji </button>
-                                <button></button>
+                                <button onClick={() => PenambahanGaji(emp.empId)}> Penambahan Gaji </button> 
+                                <button onClick={() => PenguranganGaji(emp.empId)}> Pengurangan Gaji Gaji</button>
                             </li>
                         )
                     })
