@@ -5,7 +5,7 @@ export default function FormEditJobHisApi(props) {
     const [employee, setJobHis] = useState([])
     const [values, setValues] = useState({
         employeeId: undefined,
-        //employeeName: undefined
+        startDate: undefined
       })
       
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function FormEditJobHisApi(props) {
     const onEdit = async () => {
         const payload = {
             employeeId: (props.id),
-           //employeeName: (values.employeeName)
+           startDate: (values.startDate)
         }
         await JobHistoryApi.Update(payload)
             .then(() => {
@@ -35,10 +35,10 @@ export default function FormEditJobHisApi(props) {
                     <label>Employee ID : </label>
                     <input type="text" defaultValue={employee.employeeId} onChange={HandleChange('employeeId')} disabled></input>
                 </div>
-                {/* <div>
+                <div>
                     <label>First Name : </label>
-                    <input type="text" defaultValue={employee.employeeName} onChange={HandleChange('employeeName')}></input>
-                </div> */}
+                    <input type="text" defaultValue={employee.startDate} onChange={HandleChange('startDate')}></input>
+                </div> 
                 <div>
                     <button type='submit'>Simpan</button>
                     <button onClick={() => props.setDisplay(false)}>Cancel</button>

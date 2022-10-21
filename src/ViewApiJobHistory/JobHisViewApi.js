@@ -48,8 +48,8 @@ export default function JobHisViewApi() {
               <table>
                 <thead>
                   <tr>
-                    <th>JobHis ID</th>
-                    <th>JobHis Name</th>
+                    <th>Employee ID</th>
+                    <th>Start Date</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -57,8 +57,8 @@ export default function JobHisViewApi() {
                   {
                     job_history && job_history.map(reg => (
                       <tr key={reg.job_history_id}>
-                        <td>{reg.job_historyId}</td>
-                        <td>{reg.job_historyName}</td>
+                        <td>{reg.job_employeeId}</td>
+                        <td>{reg.job_startDate}</td>
                         <td>
                           <button onClick={() => onDelete(reg.job_historyId)}>Delete JobHis</button>
                           <button onClick={() => onClick(reg.job_historyId)}>Edit JobHis</button>

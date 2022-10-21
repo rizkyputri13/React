@@ -24,8 +24,8 @@ export default function FormJobHisApi(props) {
             <h2>Add JobHis</h2>
             <form onSubmit={onSubmit}>
                 <div>
-                    <label>JobHis Name : </label>
-                    <input type="text" placeholder='JobHis Name' onChange={HandleChange('employeeName')}></input>
+                    <label>Start Date : </label>
+                    <input type="text" placeholder='Start Date' onChange={HandleChange('employeeName')}></input>
                 </div>
                 <div>
                     <button type='submit'>Simpan</button>
