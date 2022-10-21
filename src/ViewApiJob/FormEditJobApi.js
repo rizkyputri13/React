@@ -5,7 +5,7 @@ export default function FormEditJobApi(props) {
     const [job, setJob] = useState([])
     const [values, setValues] = useState({
         jobId: undefined,
-        jobName: undefined
+        jobTitle: undefined
       })
       
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function FormEditJobApi(props) {
     const onEdit = async () => {
         const payload = {
             jobId: (props.id),
-            jobName: (values.jobName)
+            jobTitle: (values.jobTitle)
         }
         await JobApi.Update(payload)
             .then(() => {
@@ -36,8 +36,8 @@ export default function FormEditJobApi(props) {
                     <input type="text" defaultValue={job.jobId} onChange={HandleChange('jobId')} disabled></input>
                 </div>
                 <div>
-                    <label>Job Name : </label>
-                    <input type="text" defaultValue={job.jobName} onChange={HandleChange('jobName')}></input>
+                    <label>Job Title : </label>
+                    <input type="text" defaultValue={job.jobTitle} onChange={HandleChange('jobTitle')}></input>
                 </div>
                 <div>
                     <button type='submit'>Simpan</button>

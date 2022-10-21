@@ -5,7 +5,10 @@ export default function FormEditLocationApi(props) {
     const [location, setLocation] = useState([])
     const [values, setValues] = useState({
         locationId: undefined,
-        locationName: undefined
+        streetAddress: undefined,
+        postalCode: undefined,
+        city: undefined,
+        stateProvince: undefined
       })
       
     useEffect(() => {
@@ -19,7 +22,10 @@ export default function FormEditLocationApi(props) {
     const onEdit = async () => {
         const payload = {
             locationId: (props.id),
-            locationName: (values.locationName)
+            streetAddress: (values.streetAddress),
+            postalCode: (values.postalCode),
+            city: (values.city),
+            stateProvince: (values.stateProvince)
         }
         await LocationApi.Update(payload)
             .then(() => {
@@ -36,8 +42,24 @@ export default function FormEditLocationApi(props) {
                     <input type="text" defaultValue={location.locationId} onChange={HandleChange('locationId')} disabled></input>
                 </div>
                 <div>
-                    <label>Location Name : </label>
-                    <input type="text" defaultValue={location.locationName} onChange={HandleChange('locationName')}></input>
+                    <label>Street Address : </label>
+                    <input type="text" defaultValue={location.streetAddress} onChange={HandleChange('streetAddress')}></input>
+                </div>
+                <div>
+                    <label>Postal Code : </label>
+                    <input type="text" defaultValue={location.postalCode} onChange={HandleChange('postalCode')}></input>
+                </div>
+                <div>
+                    <label>City : </label>
+                    <input type="text" defaultValue={location.city} onChange={HandleChange('city')}></input>
+                </div>
+                <div>
+                    <label>State Province: </label>
+                    <input type="text" defaultValue={location.stateProvince} onChange={HandleChange('stateProvince')}></input>
+                </div>
+                <div>
+                    <button type='submit'>Simpan</button>
+                    <button onClick={() => props.setDisplay(false)}>Cancel</button>
                 </div>
                 <div>
                     <button type='submit'>Simpan</button>

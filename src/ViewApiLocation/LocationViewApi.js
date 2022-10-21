@@ -58,7 +58,10 @@ export default function LocationViewApi() {
                     location.map && location.map(loc => (
                       <tr key={loc.location_id}>
                         <td>{loc.locationId}</td>
-                        <td>{loc.locationName}</td>
+                        <td>{loc.streetAddress}</td>
+                        <td>{loc.postalCode}</td>
+                        <td>{loc.city}</td>
+                        <td>{loc.stateProvince}</td>
                         <td>
                           <button onClick={() => onDelete(loc.locationId)}>Delete Location</button>
                           <button onClick={() => onClick(loc.locationId)}>Edit Location</button>

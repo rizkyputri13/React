@@ -3,7 +3,7 @@ import JobApi from '../api/JobApi'
 
 export default function FormJobApi(props) {
     const [values, setValues] = useState({
-        jobName: undefined
+        jobTitle: undefined
     })
 
     const HandleChange = name => event => {
@@ -11,7 +11,7 @@ export default function FormJobApi(props) {
     }
     const onSubmit = async () => {
         const payload = {
-            jobName: (values.jobName)
+            jobTitle: (values.jobTitle)
         }
         await JobApi.Create(payload)
             .then(() => {
@@ -24,8 +24,8 @@ export default function FormJobApi(props) {
             <h2>Add Job</h2>
             <form onSubmit={onSubmit}>
                 <div>
-                    <label>Job Name : </label>
-                    <input type="text" placeholder='Job Name' onChange={HandleChange('jobName')}></input>
+                    <label>Job Title : </label>
+                    <input type="text" placeholder='Job Title' onChange={HandleChange('jobTitle')}></input>
                 </div>
                 <div>
                     <button type='submit'>Simpan</button>

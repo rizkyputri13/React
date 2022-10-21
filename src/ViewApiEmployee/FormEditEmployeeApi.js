@@ -5,7 +5,11 @@ export default function FormEditEmployeeApi(props) {
     const [employee, setEmployee] = useState([])
     const [values, setValues] = useState({
         employeeId: undefined,
-        employeeName: undefined
+        lastName: undefined,
+        email: undefined,
+        phoneNumber: undefined,
+        hireDate: undefined,
+        salary: undefined
       })
       
     useEffect(() => {
@@ -19,7 +23,11 @@ export default function FormEditEmployeeApi(props) {
     const onEdit = async () => {
         const payload = {
             employeeId: (props.id),
-            employeeName: (values.employeeName)
+            lastName: (values.lastName),
+            email: (values.email),
+            phoneNumber: (values.phoneNumber),
+            hireDate: (values.hireDate),
+            salary: (values.salary)
         }
         await EmployeeApi.Update(payload)
             .then(() => {

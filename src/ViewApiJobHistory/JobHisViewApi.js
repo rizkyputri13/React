@@ -50,6 +50,7 @@ export default function JobHisViewApi() {
                   <tr>
                     <th>Employee ID</th>
                     <th>Start Date</th>
+                    <th>End Date</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -59,6 +60,7 @@ export default function JobHisViewApi() {
                       <tr key={job_history.job_history_id}>
                         <td>{job_history.job_employeeId}</td>
                         <td>{job_history.job_startDate}</td>
+                        <td>{job_history.job_endDate}</td>
                         <td>
                           <button onClick={() => onDelete(job_history.job_historyId)}>Delete JobHis</button>
                           <button onClick={() => onClick(job_history.job_historyId)}>Edit JobHis</button>

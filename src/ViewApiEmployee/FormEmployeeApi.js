@@ -3,7 +3,12 @@ import EmployeeApi from '../api/EmployeeApi'
 
 export default function FormEmployeeApi(props) {
     const [values, setValues] = useState({
-        employeeName: undefined
+        firstName: undefined,
+        lastName: undefined,
+        email: undefined,
+        phoneNumber: undefined,
+        hireDate: undefined,
+        salary: undefined
     })
 
     const HandleChange = name => event => {
@@ -11,7 +16,12 @@ export default function FormEmployeeApi(props) {
     }
     const onSubmit = async () => {
         const payload = {
-            employeeName: (values.employeeName)
+            firstName: (values.firstName),
+            lastName: (values.lastName),
+            email: (values.email),
+            phoneNumber: (values.phoneNumber),
+            hireDate: (values.hireDate),
+            salary: (values.salary)
         }
         await EmployeeApi.Create(payload)
             .then(() => {

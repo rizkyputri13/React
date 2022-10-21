@@ -3,7 +3,8 @@ import JobHistoryApi from '../api/JobHistoryApi'
 
 export default function FormJobHisApi(props) {
     const [values, setValues] = useState({
-        employeeName: undefined
+        startDate: undefined,
+        endDate: undefined
     })
 
     const HandleChange = name => event => {
@@ -11,7 +12,11 @@ export default function FormJobHisApi(props) {
     }
     const onSubmit = async () => {
         const payload = {
-            employeeName: (values.employeeName)
+            startDate: (values.startDate),
+            streetAddress: (values.streetAddress),
+            postalCode: (values.postalCode),
+            city: (values.city),
+            stateProvince: (values.stateProvince)
         }
         await JobHistoryApi.Create(payload)
             .then(() => {
@@ -25,7 +30,11 @@ export default function FormJobHisApi(props) {
             <form onSubmit={onSubmit}>
                 <div>
                     <label>Start Date : </label>
-                    <input type="text" placeholder='Start Date' onChange={HandleChange('employeeName')}></input>
+                    <input type="text" placeholder='Start Date' onChange={HandleChange('startDate')}></input>
+                </div>
+                <div>
+                    <label>End Date : </label>
+                    <input type="text" placeholder='End Date' onChange={HandleChange('endDate')}></input>
                 </div>
                 <div>
                     <button type='submit'>Simpan</button>

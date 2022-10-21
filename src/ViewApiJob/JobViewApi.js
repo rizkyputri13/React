@@ -49,7 +49,7 @@ export default function JobViewApi() {
                 <thead>
                   <tr>
                     <th>Job ID</th>
-                    <th>Job Name</th>
+                    <th>Job Title</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -58,7 +58,7 @@ export default function JobViewApi() {
                     job.map && job.map(job => (
                       <tr key={job.job_id}>
                         <td>{job.jobId}</td>
-                        <td>{job.jobName}</td>
+                        <td>{job.jobTitle}</td>
                         <td>
                           <button onClick={() => onDelete(job.jobId)}>Delete Job</button>
                           <button onClick={() => onClick(job.jobId)}>Edit Job</button>
