@@ -55,7 +55,7 @@ export default function EmployeeViewApi() {
                 </thead>
                 <tbody>
                   {
-                    employee && employee.map(reg => (
+                    employee.map && employee.map(reg => (
                       <tr key={reg.employee_id}>
                         <td>{reg.employeeId}</td>
                         <td>{reg.employeeName}</td>

@@ -55,7 +55,7 @@ export default function CountryViewApi() {
                 </thead>
                 <tbody>
                   {
-                    country && country.map(ctr => (
+                    country.map && country.map(ctr => (
                       <tr key={ctr.country_id}>
                         <td>{ctr.countryId}</td>
                         <td>{ctr.countryName}</td>

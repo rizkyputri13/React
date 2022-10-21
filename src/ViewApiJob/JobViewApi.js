@@ -55,7 +55,7 @@ export default function JobViewApi() {
                 </thead>
                 <tbody>
                   {
-                    job && job.map(reg => (
+                    job.map && job.map(reg => (
                       <tr key={reg.job_id}>
                         <td>{reg.jobId}</td>
                         <td>{reg.jobName}</td>

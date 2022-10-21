@@ -55,7 +55,7 @@ export default function RegionViewApi() {
                 </thead>
                 <tbody>
                   {
-                    region && region.map(reg => (
+                    region.map && region.map(reg => (
                       <tr key={reg.region_id}>
                         <td>{reg.regionId}</td>
                         <td>{reg.regionName}</td>

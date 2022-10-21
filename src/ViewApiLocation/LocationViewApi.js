@@ -55,7 +55,7 @@ export default function LocationViewApi() {
                 </thead>
                 <tbody>
                   {
-                    location && location.map(reg => (
+                    location.map && location.map(reg => (
                       <tr key={reg.location_id}>
                         <td>{reg.locationId}</td>
                         <td>{reg.locationName}</td>

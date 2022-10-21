@@ -55,7 +55,7 @@ export default function DepartmentViewApi() {
                 </thead>
                 <tbody>
                   {
-                    department && department.map(reg => (
+                    department.map && department.map(reg => (
                       <tr key={reg.department_id}>
                         <td>{reg.departmentId}</td>
                         <td>{reg.departmentName}</td>

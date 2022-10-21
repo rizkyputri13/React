@@ -55,7 +55,7 @@ export default function JobHisViewApi() {
                 </thead>
                 <tbody>
                   {
-                    job_history && job_history.map(reg => (
+                    job_history.map && job_history.map(reg => (
                       <tr key={reg.job_history_id}>
                         <td>{reg.job_employeeId}</td>
                         <td>{reg.job_startDate}</td>
