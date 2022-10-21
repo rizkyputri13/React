@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import RegionApi from '../api/RegionApi'
-import FormEditRegionApi from './FormEditRegionApi'
-import FormRegionApi from './FormRegionApi'
+import JobApi from '../api/JobApi'
+import FormEditJobApi from './FormEditJobApi'
+import FormJobApi from './FormJobApi'
 
-export default function RegionViewApi() {
-  const [region, setRegion] = useState([])
+export default function JobViewApi() {
+  const [job, setJob] = useState([])
   const [refresh, setRefresh] = useState(false)
   const [id, setId] = useState()
 
@@ -12,14 +12,14 @@ export default function RegionViewApi() {
   const [displayEdit, setDisplayEdit] = useState(false)
 
   useEffect(() => {
-    RegionApi.list().then(data => {
-      setRegion(data)
+    JobApi.list().then(data => {
+      setJob(data)
     })
     setRefresh(false)
   }, [refresh])
 
   const onDelete = async (id) => {
-    RegionApi.Delete(id).then(() => {
+    JobApi.Delete(id).then(() => {
       setRefresh(true)
       window.alert('Data Successfully Delete')
     })
@@ -32,36 +32,36 @@ export default function RegionViewApi() {
     <div>
       {
         displayEdit ?
-          <FormEditRegionApi
+          <FormEditJobApi
             id={id}
             setRefresh={setRefresh}
           />
           :
           display ?
-            <FormRegionApi
+            <FormJobApi
               setRefresh={setRefresh}
             />
             :
             <>
-              <h2>List Region</h2>
-              <button onClick={() => setDisplay(true)}>Add Region</button>
+              <h2>List Job</h2>
+              <button onClick={() => setDisplay(true)}>Add Job</button>
               <table>
                 <thead>
                   <tr>
-                    <th>Region ID</th>
-                    <th>Region Name</th>
+                    <th>Job ID</th>
+                    <th>Job Name</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   {
-                    region && region.map(reg => (
-                      <tr key={reg.region_id}>
-                        <td>{reg.regionId}</td>
-                        <td>{reg.regionName}</td>
+                    job && job.map(reg => (
+                      <tr key={reg.job_id}>
+                        <td>{reg.jobId}</td>
+                        <td>{reg.jobName}</td>
                         <td>
-                          <button onClick={() => onDelete(reg.regionId)}>Delete Region</button>
-                          <button onClick={() => onClick(reg.regionId)}>Edit Region</button>
+                          <button onClick={() => onDelete(reg.jobId)}>Delete Job</button>
+                          <button onClick={() => onClick(reg.jobId)}>Edit Job</button>
                         </td>
                       </tr>
                     ))                    

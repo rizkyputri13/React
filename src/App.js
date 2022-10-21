@@ -10,6 +10,11 @@ import EmployeeRedux from './ReduxList/EmployeeRedux';
 import EmployeeReduxToolkit from './ReduxList/EmployeeReduxToolkit';
 import RegionViewApi from './ViewApiRegion/RegionViewApi';
 import CountryViewApi from './ViewApiCountry/CountryViewApi';
+import DepartmentViewApi from './ViewApiDepartment/DepartmentViewApi';
+import EmployeeViewApi from './ViewApiEmployee/EmployeeViewApi';
+import JobViewApi from './ViewApiJob/JobViewApi';
+import JobHistoryViewApi from './ViewApiJobHistory/JobHisViewApi';
+import LocationViewApi from './ViewApiLocation/LocationViewApi';
 
 function App() {
   return (

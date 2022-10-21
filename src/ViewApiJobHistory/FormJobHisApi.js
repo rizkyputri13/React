@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import RegionApi from '../api/RegionApi'
+import JobHistoryApi from '../api/JobHistoryApi'
 
-export default function FormRegionApi(props) {
+export default function FormJobHisApi(props) {
     const [values, setValues] = useState({
-        regionName: undefined
+        employeeName: undefined
     })
 
     const HandleChange = name => event => {
@@ -11,9 +11,9 @@ export default function FormRegionApi(props) {
     }
     const onSubmit = async () => {
         const payload = {
-            regionName: (values.regionName)
+            employeeName: (values.employeeName)
         }
-        await RegionApi.Create(payload)
+        await JobHistoryApi.Create(payload)
             .then(() => {
                 props.setRefresh(true)
                 window.alert('Data Successfully Insert')
@@ -21,11 +21,11 @@ export default function FormRegionApi(props) {
     }
     return (
         <div>
-            <h2>Add Region</h2>
+            <h2>Add JobHis</h2>
             <form onSubmit={onSubmit}>
                 <div>
-                    <label>Region Name : </label>
-                    <input type="text" placeholder='Region Name' onChange={HandleChange('regionName')}></input>
+                    <label>JobHis Name : </label>
+                    <input type="text" placeholder='JobHis Name' onChange={HandleChange('employeeName')}></input>
                 </div>
                 <div>
                     <button type='submit'>Simpan</button>
