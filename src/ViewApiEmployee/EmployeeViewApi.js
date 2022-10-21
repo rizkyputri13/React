@@ -49,19 +49,29 @@ export default function EmployeeViewApi() {
                 <thead>
                   <tr>
                     <th>Employee ID</th>
-                    <th>Employee Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Hire Date</th>
+                    <th>Salary</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   {
-                    employee.map && employee.map(reg => (
-                      <tr key={reg.employee_id}>
-                        <td>{reg.employeeId}</td>
-                        <td>{reg.employeeName}</td>
+                    employee.map && employee.map(emp => (
+                      <tr key={emp.employee_id}>
+                        <td>{emp.employeeId}</td>
+                        <td>{emp.firstName}</td>
+                        <td>{emp.lastName}</td>
+                        <td>{emp.email}</td>
+                        <td>{emp.phoneNumber}</td>
+                        <td>{emp.hireDate}</td>
+                        <td>{emp.salary}</td>
                         <td>
-                          <button onClick={() => onDelete(reg.employeeId)}>Delete Employee</button>
-                          <button onClick={() => onClick(reg.employeeId)}>Edit Employee</button>
+                          <button onClick={() => onDelete(emp.employeeId)}>Delete Employee</button>
+                          <button onClick={() => onClick(emp.employeeId)}>Edit Employee</button>
                         </td>
                       </tr>
                     ))                    

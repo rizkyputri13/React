@@ -55,13 +55,13 @@ export default function LocationViewApi() {
                 </thead>
                 <tbody>
                   {
-                    location.map && location.map(reg => (
-                      <tr key={reg.location_id}>
-                        <td>{reg.locationId}</td>
-                        <td>{reg.locationName}</td>
+                    location.map && location.map(loc => (
+                      <tr key={loc.location_id}>
+                        <td>{loc.locationId}</td>
+                        <td>{loc.locationName}</td>
                         <td>
-                          <button onClick={() => onDelete(reg.locationId)}>Delete Location</button>
-                          <button onClick={() => onClick(reg.locationId)}>Edit Location</button>
+                          <button onClick={() => onDelete(loc.locationId)}>Delete Location</button>
+                          <button onClick={() => onClick(loc.locationId)}>Edit Location</button>
                         </td>
                       </tr>
                     ))                    

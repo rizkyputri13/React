@@ -55,13 +55,13 @@ export default function DepartmentViewApi() {
                 </thead>
                 <tbody>
                   {
-                    department.map && department.map(reg => (
-                      <tr key={reg.department_id}>
-                        <td>{reg.departmentId}</td>
-                        <td>{reg.departmentName}</td>
+                    department.map && department.map(dep => (
+                      <tr key={dep.department_id}>
+                        <td>{dep.departmentId}</td>
+                        <td>{dep.departmentName}</td>
                         <td>
-                          <button onClick={() => onDelete(reg.departmentId)}>Delete Department</button>
-                          <button onClick={() => onClick(reg.departmentId)}>Edit Department</button>
+                          <button onClick={() => onDelete(dep.departmentId)}>Delete Department</button>
+                          <button onClick={() => onClick(dep.departmentId)}>Edit Department</button>
                         </td>
                       </tr>
                     ))                    

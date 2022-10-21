@@ -55,13 +55,13 @@ export default function JobViewApi() {
                 </thead>
                 <tbody>
                   {
-                    job.map && job.map(reg => (
-                      <tr key={reg.job_id}>
-                        <td>{reg.jobId}</td>
-                        <td>{reg.jobName}</td>
+                    job.map && job.map(job => (
+                      <tr key={job.job_id}>
+                        <td>{job.jobId}</td>
+                        <td>{job.jobName}</td>
                         <td>
-                          <button onClick={() => onDelete(reg.jobId)}>Delete Job</button>
-                          <button onClick={() => onClick(reg.jobId)}>Edit Job</button>
+                          <button onClick={() => onDelete(job.jobId)}>Delete Job</button>
+                          <button onClick={() => onClick(job.jobId)}>Edit Job</button>
                         </td>
                       </tr>
                     ))                    

@@ -36,8 +36,28 @@ export default function FormEditEmployeeApi(props) {
                     <input type="text" defaultValue={employee.employeeId} onChange={HandleChange('employeeId')} disabled></input>
                 </div>
                 <div>
-                    <label>Employee Name : </label>
-                    <input type="text" defaultValue={employee.employeeName} onChange={HandleChange('employeeName')}></input>
+                    <label>First Name : </label>
+                    <input type="text" defaultValue={employee.firstName} onChange={HandleChange('firstName')}></input>
+                </div>
+                <div>
+                    <label>Last Name : </label>
+                    <input type="text" defaultValue={employee.lastName} onChange={HandleChange('lastName')}></input>
+                </div>
+                <div>
+                    <label> Email : </label>
+                    <input type="text" defaultValue={employee.email} onChange={HandleChange('email')}></input>
+                </div>
+                <div>
+                    <label>Phone Number : </label>
+                    <input type="text" defaultValue={employee.phoneNumber} onChange={HandleChange('phoneNumber')}></input>
+                </div>
+                <div>
+                    <label>Hire Date : </label>
+                    <input type="text" defaultValue={employee.hireDate} onChange={HandleChange('hireDate')}></input>
+                </div>
+                <div>
+                    <label>Salary : </label>
+                    <input type="text" defaultValue={employee.salary} onChange={HandleChange('salary')}></input>
                 </div>
                 <div>
                     <button type='submit'>Simpan</button>
