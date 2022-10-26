@@ -31,11 +31,10 @@ export default function EmployeeList() {
                 }
             })]
         )
-        
     }
     return (
         <div>
-            <h2> <center> List Employee </center> </h2>
+            <h2>List Employee</h2>
             <ul>
                 {
                     (employee || []).map(emp => {
@@ -44,8 +43,8 @@ export default function EmployeeList() {
                                 <p>Emp Id : {emp.empId}</p>
                                 <p>Full Name : {emp.fullname}</p>
                                 <p>Salary : {emp.salary}</p>
-                                <button onClick={() => PenambahanGaji(emp.empId)}> Penambahan Gaji </button> 
-                                <button onClick={() => PenguranganGaji(emp.empId)}> Pengurangan Gaji Gaji</button>
+                                <button onClick={() => PenambahanGaji(emp.empId)}> Penambahan Gaji </button>
+                                <button onClick={() => PenguranganGaji(emp.empId)}> Pengurangan Gaji</button>
                             </li>
                         )
                     })
