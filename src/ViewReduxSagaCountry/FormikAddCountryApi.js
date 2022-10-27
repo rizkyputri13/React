@@ -11,7 +11,9 @@ export default function FormikAddCountryApi(props) {
     const [uploaded, setUploaded] = useState(false)
     const [uploadedFile, setUploadedFile] = useState(false)
     const validationSchema = Yup.object().shape({
-        countryName: Yup.string('Enter Country Name').required('Country Name is Required')
+        countryName: Yup.string('Enter Country Name').required('Country Name is Required'),
+        foto: Yup.string('Enter Country Foto').required('Country Foto is Required'),
+        file: Yup.string('Enter Country File').required('Country File is Required')
     })
     const formik = useFormik({
         initialValues: {
@@ -19,6 +21,7 @@ export default function FormikAddCountryApi(props) {
             file: undefined,
             foto: undefined
         },
+        validationSchema: validationSchema,
         onSubmit: async (values) => {
             let payload = new FormData();
             payload.append('countryName', values.countryName)
@@ -64,10 +67,10 @@ export default function FormikAddCountryApi(props) {
         setPreviewFile(null)
     }
     return (
-        <div>
             <div>
                 <label>First Name : </label>
                 <input
+                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     name="countryName"
                     id="countryName"
@@ -76,42 +79,13 @@ export default function FormikAddCountryApi(props) {
                     onBlur={formik.handleBlur}
                     autoComplete="countryName"
                 />
-            </div>
+            {formik.touched.countryName && formik.errors.countryName ? <span className="mt-2 text-sm text-red-600">{formik.errors.countryName}</span> : null}
             <div>
-                <label>File : </label>
+                <label class="block text-sm font-medium text-gray-700">Foto : </label>
                 <div>
                     <div>
-                        <div>
-                            <div>
-                                {
-                                    uploadedFile === false ?
-                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        :
-                                        <>
-                                            <img src={preViewFile} alt='image' />
-                                            <span onClick={onClearFile}>Remove</span>
-                                        </>
-                                }
-
-                                <div>
-                                    <label for="file">
-                                        <span>Upload a file</span>
-                                        <input id="file" name="file" type="file" accept='image/*' onChange={uploadFileOnChange('files')} class="sr-only" />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <label>Foto : </label>
-                <div>
-                    <div>
-                        <div>
-                            <div>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
                                 {
                                     uploaded === false ?
                                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
@@ -119,25 +93,62 @@ export default function FormikAddCountryApi(props) {
                                         </svg>
                                         :
                                         <>
-                                            <img src={previewImg} alt='image' />
-                                            <span onClick={onClearImage}>Remove</span>
+                                            <img crossOrigin='anonymous' src={previewImg} alt='image' />
+                                            <span class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500" onClick={onClearImage}>Remove</span>
                                         </>
                                 }
 
-                                <div>
-                                    <label for="foto">
-                                        <span>Upload a foto</span>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="foto" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                        <span>Upload a file</span>
                                         <input id="foto" name="foto" type="file" accept='image/*' onChange={uploadOnChange('file')} class="sr-only" />
                                     </label>
+                                    <p class="pl-1">or drag and drop</p>
                                 </div>
+                                <p class="text-xs text-gray-500">PNG, JPG, GIF up to 1MB</p>
+                                {formik.touched.foto && formik.errors.foto ? <span className="mt-2 text-sm text-red-600">{formik.errors.foto}</span> : null}
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-                <button type='submit' onClick={formik.handleSubmit}> Simpan </button>
-                <button onClick={() => props.setDisplay(false)}> Cancel </button>
+                <label class="block text-sm font-medium text-gray-700">File : </label>
+                <div>
+                    <div>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                {
+                                    uploadedFile === false ?
+                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        :
+                                        <>
+                                            <img crossOrigin='anonymous' src={preViewFile} alt='image' />
+                                            <span class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500" onClick={onClearFile}>Remove</span>
+                                        </>
+                                }
+
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="file" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                        <span>Upload a file</span>
+                                        <input id="file" name="file" type="file" accept='image/*' onChange={uploadFileOnChange('files')} class="sr-only" />
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PDF up to 1MB</p>
+                                {formik.touched.file && formik.errors.file ? <span className="mt-2 text-sm text-red-600">{formik.errors.file}</span> : null}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type='submit' className="cursor-pointer inline-flex justify-center py-2 px-2 shadow-sm text-sm font-medium rounded-md text-indigo-500 hover:text-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={formik.handleSubmit}> Simpan </button>
+                <button className="cursor-pointer inline-flex justify-center py-2 px-2 shadow-sm text-sm font-medium rounded-md text-indigo-500 hover:text-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => props.setDisplay(false)}> Cancel </button>
             </div>
         </div>
     )

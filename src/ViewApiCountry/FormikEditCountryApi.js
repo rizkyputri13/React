@@ -90,8 +90,9 @@ export default function FormikEditCountryApi(props) {
                             <div>
                                 {
                                     uploadedFile === false ?
-                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" 
+                                            strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                         :
                                         <>
@@ -101,9 +102,9 @@ export default function FormikEditCountryApi(props) {
                                 }
 
                                 <div>
-                                    <label for="file">
-                                        <span>Upload a file</span>
-                                        <input id="file" name="file" type="file" accept='image/*' onChange={uploadFileOnChange('files')} class="sr-only" />
+                                    <label htmlFor="file">
+                                        <span class="mx-auto h-12 w-12 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Upload a file</span>
+                                        <input id="file" name="file" type="file" accept='image/*' onChange={uploadFileOnChange('files')} className="sr-only" />
                                     </label>
                                 </div>
                             </div>
@@ -111,6 +112,7 @@ export default function FormikEditCountryApi(props) {
                     </div>
                 </div>
             </div>
+            <br/>
             <div>
                 <label>Foto : </label>
                 <div>
@@ -119,8 +121,9 @@ export default function FormikEditCountryApi(props) {
                             <div>
                                 {
                                     uploaded === false ?
-                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" 
+                                            strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                         :
                                         <>
@@ -130,9 +133,9 @@ export default function FormikEditCountryApi(props) {
                                 }
 
                                 <div>
-                                    <label for="foto">
-                                        <span>Upload a foto</span>
-                                        <input id="foto" name="foto" type="file" accept='image/*' onChange={uploadOnChange('file')} class="sr-only" />
+                                    <label htmlFor="foto">
+                                        <span class="mx-auto h-12 w-12 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Upload a foto</span>
+                                        <input id="foto" name="foto" type="file" accept='image/*' onChange={uploadOnChange('file')} className="sr-only" />
                                     </label>
                                 </div>
                             </div>
@@ -140,10 +143,14 @@ export default function FormikEditCountryApi(props) {
                     </div>
                 </div>
             </div>
+            <br/>
+            <br/>
             <div>
-                <button type='submit' onClick={formik.handleSubmit}> Simpan </button>
-                <button onClick={() => props.setDisplay(false)}> Cancel </button>
+                <button class="mx-auto h-12 w-30 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                type='submit' onClick={formik.handleSubmit} > Save </button>  <button class="mx-auto h-12 w-30 items-center justify-center rounded-md border border-transparent bg-grey-900 px-4 py-2 text-base font-medium text-indigo shadow-sm hover:bg-indigo-700"
+                onClick={() => props.setDisplay(false)}> Cancel </button>
             </div>
+             <br/>
     </div>
   )
 }
