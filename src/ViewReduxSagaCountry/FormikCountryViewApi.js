@@ -58,9 +58,9 @@ export default function FormikCountryViewApi() {
                     countries && countries.map(ctr => (
                       <tr key={ctr.country_id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td scope="row" className="px-6 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">{ctr.countryId}</td>
-                        <td className="px-6 py-2">{ctr.countryName}</td>
-                        <td className="px-6 py-2">{ctr.countryFile}</td>
-                        <td className="px-6 py-2">{ctr.countryPhoto}</td>
+                          <td className="px-6 py-2">{ctr.countryName}</td>
+                          <td className="px-6 py-2">{ctr.countryFile}</td>
+                          <td className="px-6 py-2">{ctr.countryPhoto}</td>
                         <td>
                         <td className='py-2'>
                             <button type="button" className="cursor-pointer inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => onDelete(ctr.countryId)}>Delete Country</button>

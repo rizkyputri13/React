@@ -27,8 +27,10 @@ export default function FormCountryApi(props) {
                     <input type="text" placeholder='Country Name' onChange={HandleChange('countryName')}></input>
                 </div>
                 <div>
-                    <button type='submit'>Simpan</button>
-                    <button onClick={() => props.setDisplay(false)}>Cancel</button>
+                    <button class="mx-auto h-12 w-30 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                    type='submit'>Save</button>
+                    <button class="mx-auto h-12 w-30 items-center justify-center rounded-md border border-transparent bg-grey-900 px-4 py-2 text-base font-medium text-indigo shadow-sm hover:bg-indigo-700"
+                     onClick={() => props.setDisplay(false)}>Cancel</button>
                 </div>
 
             </form>
